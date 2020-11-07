@@ -20,6 +20,10 @@ from textblob import TextBlob, Word
 from operator import add
 from itertools import starmap
 
+nltk.download('averaged_perceptron_tagger')
+nltk.download('wordnet')
+nltk.download('punkt')
+nltk.download('stopwords')
 
 
 def remove_url(text):
