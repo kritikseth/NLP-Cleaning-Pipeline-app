@@ -5,16 +5,13 @@ nlpc = importlib.import_module('nlpclean')
 nlpl = importlib.import_module('nlplearn')
 
 app = Flask(__name__)
+
 @app.route('/')
 def main():
-    return redirect('https://kritikseth.github.io')
-
-@app.route('/nlppipeline')
-def nlp():
     return render_template('nlp.html')
 
-@app.route('/nlppipeline/process', methods=['GET','POST'])
-def nlpclean():
+@app.route('/process', methods=['GET','POST'])
+def process():
     if request.method == 'POST':
         toggle = request.form.to_dict(flat=False)
         cleantext, og = nlpc.clean(toggle)
